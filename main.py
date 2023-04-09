@@ -3,7 +3,7 @@ import certifi
 import slack_sdk
 import pymysql
 
-from config.DB import connect_to_db
+from config.conn_db import connect_to_db
 
 import os
 from dotenv import load_dotenv
@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 # get DB NAME
 db_name = os.getenv("DB_NAME")
+
 
 # connection to db
 try:
@@ -29,4 +30,4 @@ slack_token = os.getenv("SLACK_BOT_TOKEN")
 client = slack_sdk.WebClient(token=slack_token, ssl=ssl_context)
 
 client.chat_postMessage(channel='#dev_alarm_bot',
-                        text="API TEST4")
+                        text=now_date)
