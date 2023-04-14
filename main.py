@@ -4,6 +4,7 @@ import slack_sdk
 import pymysql
 import time
 import json
+import logging
 
 import boto3
 
@@ -13,6 +14,7 @@ from s3_Info import s3_info
 import os
 from dotenv import load_dotenv
 
+logging.basicConfig(filename='sys.log', level=logging.INFO)
 # env load
 load_dotenv()
 # S3 연결 객체 생성
@@ -97,3 +99,5 @@ def send_slack_msg(msg):
 
 send_slack_msg(message)
 
+logging.info('start Dev Alarm ')
+# logging.warning('This is a warning message')
